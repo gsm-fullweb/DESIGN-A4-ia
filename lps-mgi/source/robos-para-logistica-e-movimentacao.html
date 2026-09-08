@@ -1,0 +1,2023 @@
+<!-- wp:html -->
+<div class="lp-outsourcing-mgi mgi-lp">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+        .mgi-lp>p,
+        .mgi-lp>br {
+            display: none !important;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .mgi-lp {
+            --navy: #0b2440;
+            --navy-2: #123a63;
+            --blue: #1e6fd9;
+            --blue-dark: #1657ad;
+            --ink: #1c2733;
+            --muted: #5b6b7b;
+            --line: #e3e9f0;
+            --bg-soft: #f4f7fb;
+            --white: #fff;
+            --radius: 14px;
+            --shadow: 0 10px 30px rgba(11, 36, 64, .08);
+            color: var(--ink);
+            line-height: 1.6;
+            font-family: 'DM Sans', -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+            margin-top: -1px;
+        }
+
+        .mgi-lp * {
+            box-sizing: border-box;
+        }
+
+        .mgi-lp a {
+            color: var(--blue);
+            text-decoration: none;
+        }
+
+        .mgi-lp .wrap {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 22px;
+        }
+
+        .mgi-lp h1,
+        .mgi-lp h2,
+        .mgi-lp h3 {
+            line-height: 1.2;
+            color: var(--navy);
+            margin: 0 0 .5em;
+        }
+
+        .mgi-lp h2 {
+            font-size: 1.75rem;
+            margin-top: 0;
+        }
+
+        .mgi-lp .btn {
+            display: inline-block;
+            background: var(--blue);
+            color: #fff;
+            padding: 14px 26px;
+            border-radius: 10px;
+            font-weight: 600;
+            border: 0;
+            cursor: pointer;
+            transition: .2s;
+        }
+
+        .mgi-lp .btn:hover {
+            background: var(--blue-dark);
+        }
+
+        .mgi-lp .btn-ghost {
+            background: transparent;
+            border: 2px solid #fff;
+            color: #fff;
+        }
+
+        .mgi-lp .hero {
+            background: #1b3a6b;
+            color: #fff;
+            padding: 72px 0 72px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mgi-lp .hero::before {
+            display: none;
+        }
+
+        .mgi-lp .hero .wrap {
+            position: relative;
+            z-index: 2;
+        }
+
+        .mgi-lp .hero h1 {
+            color: #fff;
+            font-size: 2.6rem;
+            max-width: 15ch;
+        }
+
+        .mgi-lp .hero .tag {
+            font-size: 1.2rem;
+            color: #cfe0f5;
+            max-width: 52ch;
+            margin: .4em 0 1.6em;
+        }
+
+        .mgi-lp .hero-grid {
+            display: grid;
+            grid-template-columns: 1.3fr .9fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .mgi-lp .hero-card {
+            background: rgba(255, 255, 255, .08);
+            border: 1px solid rgba(255, 255, 255, .18);
+            border-radius: var(--radius);
+            padding: 26px;
+        }
+
+        .mgi-lp .hero-card h3 {
+            color: #fff;
+            margin-top: 0;
+        }
+
+        .mgi-lp .hero-card ul {
+            margin: 0;
+            padding-left: 18px;
+            color: #dce8f7;
+        }
+
+        .mgi-lp .answer {
+            background: var(--bg-soft);
+            border-left: 5px solid var(--blue);
+            border-radius: 0 var(--radius) var(--radius) 0;
+            padding: 22px 26px;
+            margin: 0 0 8px;
+        }
+
+        .mgi-lp .answer p {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        .mgi-lp .answer-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+            gap: 40px;
+            align-items: center;
+        }
+
+        .mgi-lp .answer-grid img,
+        .mgi-lp .answer-grid iframe {
+            width: 100%;
+            display: block;
+        }
+
+        .mgi-lp section {
+            padding: 56px 0;
+        }
+
+        .mgi-lp .lead {
+            color: var(--muted);
+            max-width: 70ch;
+            font-size: 1.08rem;
+        }
+
+        .mgi-lp .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+            margin-top: 28px;
+        }
+
+        .mgi-lp .card {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 24px;
+            box-shadow: var(--shadow);
+        }
+
+        .mgi-lp .card h3 {
+            font-size: 1.15rem;
+        }
+
+        .mgi-lp .card p {
+            color: var(--muted);
+            margin: 0;
+            font-size: .97rem;
+        }
+
+        .mgi-lp .benefits {
+            background: var(--bg-soft);
+        }
+
+        .mgi-lp .ben-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+            margin-top: 28px;
+        }
+
+        .mgi-lp .ben {
+            background: #fff;
+            border-radius: var(--radius);
+            padding: 24px;
+            border: 1px solid var(--line);
+        }
+
+        .mgi-lp .ben .ico {
+            width: 46px;
+            height: 46px;
+            border-radius: 10px;
+            background: #e7f0fd;
+            color: var(--blue);
+            display: grid;
+            place-items: center;
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+        }
+
+        .mgi-lp .ben h3 {
+            font-size: 1.05rem;
+            margin-bottom: .3em;
+        }
+
+        .mgi-lp .ben p {
+            color: var(--muted);
+            margin: 0;
+            font-size: .94rem;
+        }
+
+        .mgi-lp .steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+            margin-top: 28px;
+            counter-reset: s;
+        }
+
+        .mgi-lp .step {
+            position: relative;
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 24px 20px;
+        }
+
+        .mgi-lp .step::before {
+            counter-increment: s;
+            content: counter(s);
+            position: absolute;
+            top: -16px;
+            left: 20px;
+            width: 34px;
+            height: 34px;
+            background: var(--blue);
+            color: #fff;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            font-weight: 700;
+        }
+
+        .mgi-lp .step h3 {
+            font-size: 1rem;
+            margin: .4em 0 .3em;
+        }
+
+        .mgi-lp .step p {
+            color: var(--muted);
+            font-size: .92rem;
+            margin: 0;
+        }
+
+        .mgi-lp .cluster {
+            background: var(--navy);
+            color: #fff;
+        }
+
+        .mgi-lp .cluster h2 {
+            color: #fff;
+        }
+
+        .mgi-lp .chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 18px;
+        }
+
+        .mgi-lp .chips a {
+            background: rgba(255, 255, 255, .1);
+            border: 1px solid rgba(255, 255, 255, .2);
+            color: #fff;
+            padding: 9px 16px;
+            border-radius: 30px;
+            font-size: .92rem;
+        }
+
+        .mgi-lp .chips a:hover {
+            background: var(--blue);
+        }
+
+        .mgi-lp .faq details {
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            padding: 4px 18px;
+            margin-bottom: 12px;
+            background: #fff;
+        }
+
+        .mgi-lp .faq summary {
+            font-weight: 600;
+            color: var(--navy);
+            cursor: pointer;
+            padding: 14px 0;
+            list-style: none;
+        }
+
+        .mgi-lp .faq summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .mgi-lp .faq summary::after {
+            content: "+";
+            float: right;
+            color: var(--blue);
+            font-weight: 700;
+        }
+
+        .mgi-lp .faq details[open] summary::after {
+            content: "–";
+        }
+
+        .mgi-lp .faq p {
+            color: var(--muted);
+            margin: 0 0 14px;
+        }
+
+        .mgi-lp .cta {
+            background: linear-gradient(120deg, var(--blue), var(--blue-dark));
+            color: #fff;
+        }
+
+        .mgi-lp .cta h2 {
+            color: #fff;
+        }
+
+        .mgi-lp .cta p {
+            color: #e6f0ff;
+        }
+
+        .mgi-lp .form-card {
+            background: #000000;
+            border-radius: var(--radius);
+            padding: 24px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .mgi-lp .form-card label,
+        .mgi-lp .form-card .hs-form-field>label,
+        .mgi-lp .form-card .hs-form-field,
+        .mgi-lp .form-card legend,
+        .mgi-lp .form-card p {
+            color: #ffffff !important;
+        }
+
+        .mgi-lp .cookie-bar {
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 9999;
+            background: var(--navy);
+            color: #dce8f7;
+            padding: 16px 20px;
+            box-shadow: 0 -6px 24px rgba(11, 36, 64, .25);
+            font-size: .92rem;
+        }
+
+        .mgi-lp .cookie-bar .wrap {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        .mgi-lp .cookie-bar p {
+            margin: 0;
+            max-width: 82ch;
+        }
+
+        .mgi-lp .cookie-bar a {
+            color: #9fc2f0;
+            text-decoration: underline;
+        }
+
+        .mgi-lp .cookie-bar .btn {
+            padding: 10px 24px;
+            white-space: nowrap;
+        }
+
+        .mgi-lp .carousel-wrapper {
+            position: relative;
+            margin: 40px 0;
+        }
+
+        .mgi-lp .carousel {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 20px;
+            padding-bottom: 20px;
+            scrollbar-width: thin;
+            scrollbar-color: var(--blue) var(--line);
+        }
+
+        .mgi-lp .carousel::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .mgi-lp .carousel::-webkit-scrollbar-track {
+            background: var(--line);
+            border-radius: 4px;
+        }
+
+        .mgi-lp .carousel::-webkit-scrollbar-thumb {
+            background: var(--blue);
+            border-radius: 4px;
+        }
+
+        .mgi-lp .carousel-item {
+            flex: 0 0 85%;
+            max-width: 320px;
+            scroll-snap-align: center;
+            background: #fff;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--line);
+        }
+
+        .mgi-lp .carousel-item img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            padding: 0;
+            background: #fff;
+            display: block;
+        }
+
+        .mgi-lp .setores {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 36px;
+        }
+
+        .mgi-lp .setor-card {
+            position: relative;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+            transition: transform .2s;
+        }
+
+        .mgi-lp .setor-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .mgi-lp .setor-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .mgi-lp .setor-card .setor-title {
+            background: var(--navy);
+            color: #fff;
+            padding: 16px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 1.05rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        @media(max-width:820px) {
+            .mgi-lp .hero {
+                clip-path: none;
+                padding: 48px 0 40px;
+            }
+
+            .mgi-lp .hero-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .mgi-lp .hero h1 {
+                font-size: 2rem;
+            }
+
+            .mgi-lp .answer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .mgi-lp .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .mgi-lp .ben-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .mgi-lp .steps {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .mgi-lp .cta-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .mgi-lp .cookie-bar .wrap {
+                justify-content: center;
+                text-align: center;
+            }
+
+            .mgi-lp .carousel-item {
+                max-width: 280px;
+            }
+
+            .mgi-lp .setores {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media(max-width:500px) {
+            .mgi-lp .setores {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Robôs para Logística e Movimentação (AMR / AGV)",
+  "provider": {
+    "@type": "Organization",
+    "name": "MGI",
+    "url": "https://mgi.com.br/"
+  },
+  "name": "Robôs para Logística e Movimentação Autônoma",
+  "description": "Locação e integração de Robôs Móveis Autônomos (AMR) e AGVs para intralogística, transporte de paletes e automação de armazéns.",
+  "url": "https://mgi.com.br/solucoes/robos-para-logistica-e-movimentacao/"
+}
+</script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Qual é a diferença entre um AGV tradicional e um AMR?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Enquanto os AGVs dependem de trilhos ou fitas magnéticas fixas, os AMRs (Autonomous Mobile Robots) navegam de forma 100% autônoma por sensores LiDAR e IA, desviando dinamicamente de pessoas e outros veículos."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Os robôs integram com sistemas WMS e ERP?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim. Nossa plataforma de gestão de frotas (Fleet Management) integra-se via API com os principais softwares de WMS, ERP e MES do mercado para automação total de ordens de transporte."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Qual a capacidade de carga dos robôs logísticos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Disponibilizamos modelos que suportam desde cargas leves de 100 kg até robôs industriais pesados com capacidade para mais de 1.500 kg (movimentação completa de paletes padrão)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como é feito o suporte e a manutenção da frota?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "O contrato de locação MGI inclui suporte técnico contínuo, telemetria em tempo real, manutenção preventiva programada e pronta reposição de peças sem custos extras."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Projeto consultivo",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Mapeamos sua operação e desenhamos a automação que faz sentido para o seu negócio, antes de indicar qualquer equipamento."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Implantação assistida",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Acompanhamos a entrada dos robôs na operação, do teste inicial ao funcionamento pleno, sem improviso."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Suporte especializado",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Assistência técnica própria e um time que conhece a sua operação, não terceirizamos o que é crítico."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Integração com a operação do cliente",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Os robôs entram no seu fluxo real de trabalho, integrados aos processos que já existem."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Modelos flexíveis de contratação",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Locação, projeto ou modelos combinados, ajustados ao momento e ao caixa da sua empresa."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Ecossistema completo de tecnologia",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Robótica dentro de um portfólio que já inclui mobile, computadores, impressão e gestão de ativos com a plataforma MyIN."
+      }
+    }
+  ]
+}
+</script>
+    <style id="mgi-modern-lp-2026">
+        .mgi-lp {
+            --navy: #0b2440;
+            --navy-2: #123a63;
+            --blue: #1769d2;
+            --cyan: #29b6e8;
+            --green: #20b965;
+            --ink: #172434;
+            --muted: #5f6f82;
+            --line: #dfe7f0;
+            --soft: #f4f8fc;
+            --white: #fff;
+            --radius: 22px;
+            --shadow: 0 18px 55px rgba(10, 36, 64, .10);
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            color: var(--ink);
+        }
+
+        .mgi-lp .wrap {
+            max-width: 1180px;
+            padding: 0 28px;
+        }
+
+        .mgi-lp section:not(.hero) {
+            padding-top: 88px;
+            padding-bottom: 88px;
+        }
+
+        .mgi-lp h2 {
+            font-size: clamp(2rem, 3vw, 2.85rem);
+            letter-spacing: -.035em;
+            max-width: 850px;
+        }
+
+        .mgi-lp h3 {
+            letter-spacing: -.02em;
+        }
+
+        .mgi-lp p {
+            color: var(--muted);
+            font-size: 1.03rem;
+        }
+
+        .mgi-lp .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 54px;
+            padding: 14px 24px;
+            border-radius: 12px;
+            font-weight: 750;
+            line-height: 1.15;
+            box-shadow: 0 10px 24px rgba(15, 92, 190, .22);
+            transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+        }
+
+        .mgi-lp .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 30px rgba(15, 92, 190, .28);
+        }
+
+        .mgi-lp .hero {
+            min-height: 620px;
+            padding: 50px 0 54px;
+            background-color: #071933;
+            background-image: radial-gradient(circle at 85% 50%, rgba(30, 111, 217, 0.22) 0%, transparent 60%), linear-gradient(135deg, #06172e 0%, #0c2b55 50%, #071933 100%);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center right;
+            display: flex;
+            align-items: center;
+        }
+
+        .mgi-lp .hero-shell {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: minmax(0, 1.15fr) minmax(320px, .85fr);
+            align-items: center;
+            gap: 40px;
+            width: 100%;
+        }
+
+        .mgi-lp .hero-copy {
+            max-width: 680px;
+        }
+
+        .mgi-lp .hero-logo {
+            width: 190px;
+            height: auto;
+            margin: 0 0 24px;
+            display: block;
+        }
+
+        .mgi-lp .hero-eyebrow,
+        .mgi-lp .section-kicker,
+        .mgi-lp .form-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-transform: uppercase;
+            letter-spacing: .11em;
+            font-size: .76rem;
+            font-weight: 800;
+        }
+
+        .mgi-lp .hero-eyebrow {
+            color: #bfe7ff;
+            background: rgba(255, 255, 255, .10);
+            border: 1px solid rgba(255, 255, 255, .19);
+            padding: 8px 13px;
+            border-radius: 999px;
+        }
+
+        .mgi-lp .hero h1 {
+            color: #fff;
+            font-size: clamp(2.5rem, 4.8vw, 4.2rem);
+            line-height: 1.05;
+            letter-spacing: -.045em;
+            max-width: 720px;
+            margin: 18px 0;
+        }
+
+        .mgi-lp .hero .tag {
+            color: rgba(255, 255, 255, .88);
+            font-size: clamp(1.05rem, 1.4vw, 1.22rem);
+            line-height: 1.6;
+            max-width: 640px;
+        }
+
+        .mgi-lp .hero-actions {
+            display: flex;
+            gap: 13px;
+            flex-wrap: wrap;
+            margin: 28px 0 24px;
+        }
+
+        .mgi-lp .btn-primary {
+            background: #fff;
+            color: #103a6b;
+        }
+
+        .mgi-lp .btn-primary:hover {
+            background: #e9f4ff;
+            color: #103a6b;
+        }
+
+        .mgi-lp .btn-whatsapp {
+            background: #20bf69;
+            color: #fff;
+        }
+
+        .mgi-lp .btn-whatsapp:hover {
+            background: #159d54;
+        }
+
+        .mgi-lp .hero-trust {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 10px 18px;
+            color: rgba(255, 255, 255, .92);
+            font-size: .9rem;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .mgi-lp .hero-trust li {
+            display: flex;
+            gap: 7px;
+        }
+
+        .mgi-lp .lead-form-section {
+            background: linear-gradient(180deg, #f5f9fd 0%, #fff 100%);
+        }
+
+        .mgi-lp .lead-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.08fr) minmax(320px, .92fr);
+            gap: 36px;
+            align-items: start;
+        }
+
+        .mgi-lp .form-card {
+            background: #07111f;
+            color: #fff;
+            border: 1px solid #152a43;
+            border-radius: 24px;
+            padding: 38px;
+            box-shadow: 0 24px 70px rgba(8, 31, 58, .18);
+        }
+
+        .mgi-lp .form-kicker {
+            color: #7bd2ff;
+        }
+
+        .mgi-lp .form-intro {
+            color: #cbd6e3;
+            margin: 10px 0 24px;
+        }
+
+        .mgi-lp .form-benefits {
+            padding: 20px 12px 20px 30px;
+        }
+
+        .mgi-lp .section-kicker {
+            color: var(--blue);
+            margin-bottom: 12px;
+        }
+
+        .mgi-lp .form-benefits h3 {
+            font-size: clamp(2rem, 3vw, 2.8rem);
+            margin-bottom: 24px;
+        }
+
+        .mgi-lp .form-benefits ul:not(.benefit-pills) {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 24px;
+            display: grid;
+            gap: 15px;
+        }
+
+        .mgi-lp .form-benefits ul:not(.benefit-pills) li {
+            position: relative;
+            padding-left: 36px;
+            font-size: 1.02rem;
+            line-height: 1.5;
+        }
+
+        .mgi-lp .form-benefits ul:not(.benefit-pills) li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            top: -1px;
+            width: 24px;
+            height: 24px;
+            display: grid;
+            place-items: center;
+            background: #e7f8ef;
+            color: #149854;
+            border-radius: 50%;
+            font-weight: 900;
+        }
+
+        .mgi-lp .benefit-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .mgi-lp .benefit-pills li {
+            position: static;
+            font-size: .88rem;
+            font-weight: 700;
+            color: #174b7d;
+            background: #eaf4ff;
+            padding: 8px 16px;
+            border-radius: 999px;
+            line-height: 1.4;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .mgi-lp .benefit-pills li:before {
+            content: none !important;
+            display: none !important;
+        }
+
+        .mgi-lp .response-note {
+            margin-top: 25px;
+            padding: 20px 22px;
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            background: #fff;
+            box-shadow: 0 12px 32px rgba(11, 36, 64, .06);
+            color: var(--muted);
+        }
+
+        .mgi-lp .response-note strong {
+            color: var(--navy);
+        }
+
+        .mgi-lp .card,
+        .mgi-lp .ben,
+        .mgi-lp .answer,
+        .mgi-lp .step {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: 20px;
+            box-shadow: 0 12px 38px rgba(11, 36, 64, .07);
+            transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+        }
+
+        .mgi-lp .card:hover,
+        .mgi-lp .ben:hover,
+        .mgi-lp .answer:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 46px rgba(11, 36, 64, .11);
+            border-color: #c7d9ed;
+        }
+
+        .mgi-lp .benefits {
+            background: linear-gradient(145deg, #eef7ff 0%, #f9fcff 100%);
+        }
+
+        .mgi-lp .ico {
+            background: linear-gradient(135deg, #e9f4ff, #dff8ff);
+            border-radius: 14px;
+            width: 52px;
+            height: 52px;
+            display: grid;
+            place-items: center;
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+        }
+
+        .mgi-lp .step {
+            position: relative;
+            padding: 34px 24px;
+            counter-reset: none;
+        }
+
+        .mgi-lp .steps {
+            counter-reset: mgiStep;
+            gap: 20px;
+        }
+
+        .mgi-lp .step:before {
+            counter-increment: mgiStep;
+            content: '0' counter(mgiStep);
+            display: block;
+            color: var(--blue);
+            font-weight: 900;
+            font-size: .85rem;
+            letter-spacing: .08em;
+            margin-bottom: 14px;
+            position: static;
+            width: auto;
+            height: auto;
+            background: none;
+            border-radius: 0;
+        }
+
+        .mgi-lp .faq details {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            margin: 11px 0;
+            padding: 4px 18px;
+            box-shadow: 0 8px 24px rgba(11, 36, 64, .05);
+        }
+
+        .mgi-lp .faq summary {
+            padding: 17px 0;
+            font-weight: 750;
+            color: var(--navy);
+        }
+
+        .mgi-lp .cta {
+            background: linear-gradient(135deg, #0b2440 0%, #164f8d 60%, #147fb4 100%);
+            text-align: center;
+        }
+
+        .mgi-lp .cta h2,
+        .mgi-lp .cta p {
+            color: #fff;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .mgi-lp .hero-showcase-box {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .mgi-lp .hero-tech-card {
+            position: relative;
+            width: 100%;
+            max-width: 480px;
+            background: rgba(11, 36, 64, 0.65);
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-radius: 24px;
+            padding: 18px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45), 0 0 40px rgba(30, 111, 217, 0.25);
+            overflow: hidden;
+            transition: transform .3s ease, box-shadow .3s ease;
+        }
+
+        .mgi-lp .hero-tech-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.55), 0 0 50px rgba(41, 182, 232, 0.35);
+        }
+
+        .mgi-lp .hero-tech-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 14px;
+        }
+
+        .mgi-lp .hero-tech-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(30, 111, 217, 0.25);
+            border: 1px solid rgba(41, 182, 232, 0.4);
+            color: #bfe7ff;
+            font-size: 0.78rem;
+            font-weight: 700;
+            padding: 5px 12px;
+            border-radius: 20px;
+            letter-spacing: 0.5px;
+        }
+
+        .mgi-lp .hero-tech-tag .live-dot {
+            width: 7px;
+            height: 7px;
+            background: #20bf69;
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 8px #20bf69;
+            animation: pulse-dot 1.8s infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(0.8); }
+        }
+
+        .mgi-lp .hero-tech-badge {
+            background: rgba(255, 255, 255, 0.12);
+            color: #fff;
+            font-size: 0.74rem;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .mgi-lp .hero-tech-img-box {
+            position: relative;
+            width: 100%;
+            height: 260px;
+            border-radius: 16px;
+            overflow: hidden;
+            background: radial-gradient(circle at center, rgba(30, 111, 217, 0.32) 0%, rgba(8, 29, 58, 0.95) 75%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+        }
+
+        .mgi-lp .hero-tech-img-box img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            display: block;
+            filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.55));
+            transition: transform .3s ease;
+        }
+
+        .mgi-lp .hero-tech-card:hover .hero-tech-img-box img {
+            transform: scale(1.04);
+        }
+
+        .mgi-lp .hero-tech-card-footer {
+            margin-top: 14px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            text-align: center;
+        }
+
+        .mgi-lp .hero-tech-metric {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 8px 6px;
+        }
+
+        .mgi-lp .hero-tech-metric .metric-val {
+            display: block;
+            color: #7bd2ff;
+            font-size: 1.05rem;
+            font-weight: 800;
+            line-height: 1.1;
+        }
+
+        .mgi-lp .hero-tech-metric .metric-lbl {
+            display: block;
+            color: #dce8f7;
+            font-size: 0.68rem;
+            margin-top: 3px;
+        }
+
+        /* SEGMENTOS EM CARDS */
+        .mgi-lp .segmentos-section {
+            padding: 76px 0;
+            background: var(--bg-soft);
+        }
+
+        .mgi-lp .segmentos-header {
+            text-align: center;
+            max-width: 760px;
+            margin: 0 auto 40px;
+        }
+
+        .mgi-lp .segmentos-header h2 {
+            font-size: clamp(2rem, 3vw, 2.7rem);
+            color: var(--navy);
+            margin: 0 0 12px;
+        }
+
+        .mgi-lp .segmentos-header p {
+            font-size: 1.05rem;
+            color: var(--muted);
+            margin: 0;
+        }
+
+        .mgi-lp .segmentos-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 26px;
+        }
+
+        @media (max-width: 980px) {
+            .mgi-lp .segmentos-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .mgi-lp .segmentos-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .mgi-lp .segmento-card {
+            background: #fff;
+            border-radius: 20px;
+            border: 1px solid var(--line);
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(11, 36, 64, .06);
+            display: flex;
+            flex-direction: column;
+            transition: transform .25s ease, box-shadow .25s ease;
+        }
+
+        .mgi-lp .segmento-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 18px 45px rgba(11, 36, 64, .12);
+        }
+
+        .mgi-lp .segmento-img-box {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            background: #0b2440;
+        }
+
+        .mgi-lp .segmento-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform .35s ease;
+        }
+
+        .mgi-lp .segmento-card:hover .segmento-img-box img {
+            transform: scale(1.05);
+        }
+
+        .mgi-lp .segmento-body {
+            padding: 24px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .mgi-lp .segmento-title {
+            font-size: 1.25rem;
+            font-weight: 750;
+            color: var(--navy);
+            margin: 0 0 8px;
+        }
+
+        .mgi-lp .segmento-divider {
+            width: 36px;
+            height: 3px;
+            background: var(--blue);
+            border-radius: 2px;
+            margin-bottom: 12px;
+        }
+
+        .mgi-lp .segmento-desc {
+            font-size: 0.94rem;
+            color: var(--muted);
+            line-height: 1.55;
+            margin: 0;
+        }
+
+        /* MEDIA CAROUSEL ROBOS (EXACT FROM LIVE SITE / SCREENSHOT) */
+        .mgi-lp .media-carousel-section {
+            padding: 76px 0 84px;
+            background: #051428;
+            color: #fff;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mgi-lp .media-carousel-section .wrap {
+            max-width: 1240px;
+            position: relative;
+            text-align: center;
+        }
+
+        .mgi-lp .media-carousel-section h2 {
+            color: #fff;
+            margin: 0 auto 10px;
+            font-size: clamp(2rem, 3.2vw, 2.75rem);
+            text-align: center;
+        }
+
+        .mgi-lp .media-carousel-section p.carousel-sub {
+            color: #cfe0f5;
+            max-width: 680px;
+            margin: 0 auto 40px;
+            font-size: 1.06rem;
+            text-align: center;
+        }
+
+        .mgi-lp .robots-carousel-wrapper {
+            position: relative;
+            padding: 0 10px;
+        }
+
+        .mgi-lp .media-carousel-track {
+            display: flex;
+            gap: 24px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            padding: 10px 4px 28px;
+            scrollbar-width: none;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .mgi-lp .media-carousel-track::-webkit-scrollbar {
+            display: none;
+        }
+
+        .mgi-lp .media-slide {
+            flex: 0 0 calc((100% - 48px) / 3);
+            min-width: 290px;
+            max-width: 380px;
+            scroll-snap-align: start;
+            background: transparent;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+            transition: transform .3s ease, box-shadow .3s ease;
+            position: relative;
+            display: block;
+        }
+
+        .mgi-lp .media-slide:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 28px 65px rgba(0, 0, 0, 0.6);
+        }
+
+        .mgi-lp .media-slide img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 1 / 1.7;
+            object-fit: cover;
+            display: block;
+            border-radius: 28px;
+        }
+
+        /* FLOATING ARROWS */
+        .mgi-lp .robots-arrow-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.16);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            color: #fff;
+            display: grid;
+            place-items: center;
+            font-size: 1.3rem;
+            cursor: pointer;
+            z-index: 10;
+            transition: all .2s ease;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        .mgi-lp .robots-arrow-btn:hover {
+            background: rgba(255, 255, 255, 0.35);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .mgi-lp .robots-arrow-btn.prev {
+            left: -8px;
+        }
+
+        .mgi-lp .robots-arrow-btn.next {
+            right: -8px;
+        }
+
+        /* PAGINATION DOTS */
+        .mgi-lp .robots-dots-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: 14px;
+        }
+
+        .mgi-lp .robots-dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.28);
+            border: 0;
+            padding: 0;
+            cursor: pointer;
+            transition: all .25s ease;
+        }
+
+        .mgi-lp .robots-dot.active {
+            width: 28px;
+            border-radius: 6px;
+            background: #fff;
+        }
+
+        /* PILLARS / ACCORDION SECTION */
+        .mgi-lp .pillars-section {
+            padding: 84px 0;
+            background: #fff;
+        }
+
+        .mgi-lp .pillars-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
+            gap: 48px;
+            align-items: start;
+        }
+
+        .mgi-lp .pillars-sticky-header {
+            position: sticky;
+            top: 40px;
+        }
+
+        .mgi-lp .pillars-sticky-header h2 {
+            font-size: clamp(2rem, 3.2vw, 2.75rem);
+            color: var(--navy);
+            margin: 12px 0 16px;
+            line-height: 1.15;
+        }
+
+        .mgi-lp .pillars-sticky-header p {
+            font-size: 1.08rem;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        .mgi-lp .pillars-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .mgi-lp .pillar-card {
+            background: var(--bg-soft);
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            padding: 22px 26px;
+            transition: all .25s ease;
+        }
+
+        .mgi-lp .pillar-card:hover {
+            border-color: #b9d7fb;
+            background: #fff;
+            box-shadow: 0 12px 30px rgba(11, 36, 64, .08);
+            transform: translateY(-2px);
+        }
+
+        .mgi-lp .pillar-card-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 8px;
+        }
+
+        .mgi-lp .pillar-num {
+            width: 34px;
+            height: 34px;
+            border-radius: 10px;
+            background: #e1effe;
+            color: var(--blue);
+            display: grid;
+            place-items: center;
+            font-weight: 800;
+            font-size: 0.95rem;
+            flex-shrink: 0;
+        }
+
+        .mgi-lp .pillar-card h3 {
+            font-size: 1.2rem;
+            color: var(--navy);
+            margin: 0;
+            font-weight: 750;
+        }
+
+        .mgi-lp .pillar-card p {
+            color: var(--muted);
+            font-size: 0.98rem;
+            line-height: 1.55;
+            margin: 0;
+            padding-left: 48px;
+        }
+
+        @media(max-width:900px) {
+            .mgi-lp .hero-shell {
+                grid-template-columns: 1fr;
+            }
+            .mgi-lp .lead-grid {
+                grid-template-columns: 1fr;
+            }
+            .mgi-lp .pillars-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+            .mgi-lp .pillars-sticky-header {
+                position: static;
+            }
+            .mgi-lp .segmento-slide {
+                flex: 0 0 85%;
+                max-width: 320px;
+            }
+            .mgi-lp .media-slide {
+                flex: 0 0 280px;
+                max-width: 80vw;
+                height: auto;
+            }
+        }
+    </style>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="wrap hero-shell">
+            <div class="hero-copy">
+                <img class="hero-logo" src="https://mgi.com.br/wp-content/uploads/2025/12/logo-mgi.svg" alt="MGI" width="220" height="64" />
+                <span class="hero-eyebrow">Intralogística & Robótica Móvel Autônoma</span>
+                <h1>Robôs para Logística e Movimentação</h1>
+                <p class="tag">Automatize o fluxo de cargas da sua operação sem investimento pesado, com custo previsível e solução completa inclusa.</p>
+                <div class="hero-actions">
+                    <a class="btn btn-primary" href="#orcamento">Solicitar estudo de viabilidade</a>
+                    <a class="btn btn-whatsapp" href="https://wa.me/5511986350609?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20Robôs%20para%20Logística" target="_blank" rel="noopener">Falar pelo WhatsApp</a>
+                </div>
+                <ul class="hero-trust" aria-label="Diferenciais da Robótica Logística MGI">
+                    <li>✓ Tecnologia AMR com Navegação LiDAR 3D e SLAM</li>
+                    <li>✓ Integração Nativa com ERP / WMS / MES</li>
+                    <li>✓ Capacidade de Carga de até 1.500 kg (Paletes PBR)</li>
+                    <li>✓ Gestão de Frota Inteligente (Fleet Manager)</li>
+                </ul>
+            </div>
+            <div class="hero-showcase-box">
+                <div class="hero-tech-card">
+                    <div class="hero-tech-card-header">
+                        <span class="hero-tech-tag"><span class="live-dot"></span> FT-1500 AMR</span>
+                        <span class="hero-tech-badge">Padrão 4.0</span>
+                    </div>
+                    <div class="hero-tech-img-box">
+                        <img src="https://mgi.com.br/wp-content/uploads/2026/07/FT-1500-.png" alt="Robô para Logística e Movimentação FT-1500 MGI" width="515" height="695" />
+                    </div>
+                    <div class="hero-tech-card-footer">
+                        <div class="hero-tech-metric">
+                            <span class="metric-val">1.500 kg</span>
+                            <span class="metric-lbl">Carga Máxima</span>
+                        </div>
+                        <div class="hero-tech-metric">
+                            <span class="metric-val">100%</span>
+                            <span class="metric-lbl">Navegação SLAM</span>
+                        </div>
+                        <div class="hero-tech-metric">
+                            <span class="metric-val">24/7</span>
+                            <span class="metric-lbl">Operação Contínua</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LEAD / ORÇAMENTO -->
+    <section id="orcamento" class="lead-form-section">
+        <div class="wrap lead-grid">
+            <div class="form-card">
+                <div class="form-kicker">Dimensionamento de Frota</div>
+                <p class="form-intro">Informe seu volume de movimentação e layout para elaborarmos a proposta ideal.</p>
+                <script src="https://js.hsforms.net/forms/embed/developer/114501.js" defer></script>
+                <div class="hs-form-html" data-region="na1" data-portal-id="114501" data-form-id="16dedfe0-84bc-4703-ad69-ab0ea2a9c1d7">&nbsp;</div>
+            </div>
+            <aside class="form-benefits" aria-label="Benefícios da locação de robôs logísticos">
+                <span class="section-kicker">Automação com Retorno Rápido (ROI)</span>
+                <h3>Incluso no Contrato</h3>
+                <ul>
+                    <li>Engenharia de implantação e mapeamento do layout fabril</li>
+                    <li>Integração de software com sistemas de estoque existentes</li>
+                    <li>Instalação de estações de carregamento automático</li>
+                    <li>Manutenção preventiva, corretiva e telemetria remota</li>
+                    <li>Treinamento de operadores e suporte técnico dedicado</li>
+                </ul>
+                <ul class="benefit-pills" aria-label="Benefícios rápidos">
+                    <li>Zero acidentes intralogísticos</li>
+                    <li>Operação contínua 24/7</li>
+                    <li>Escalabilidade modular</li>
+                    <li>Modelo OPEX dedutível</li>
+                </ul>
+                <div class="response-note">
+                    <strong>Engenharia Consultiva</strong><br />Nossos engenheiros analisam seu fluxo de materiais e calculam o ROI da automação sem compromisso.
+                </div>
+            </aside>
+        </div>
+    </section>
+
+    <!-- NÚMEROS E AUTORIDADE -->
+    <section id="numeros" style="padding: 64px 0; background: var(--bg-soft);">
+        <div class="wrap" style="text-align: center;">
+            <h2 style="font-size: 1.8rem; color: var(--navy); margin-bottom: 36px; font-weight: bold; max-width: 700px; margin-left: auto; margin-right: auto; line-height: 1.3;">
+                Mais de 34 anos entregando tecnologia e suporte crítico para a indústria.
+            </h2>
+            <div style="background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 40px 24px; box-shadow: var(--shadow); max-width: 900px; margin: 0 auto 36px; display: flex; flex-wrap: wrap; gap: 32px; justify-content: space-evenly; text-align: center;">
+                <div style="min-width: 180px;">
+                    <div style="font-size: 2.8rem; font-weight: bold; color: var(--blue); line-height: 1.1; margin-bottom: 8px;">+34</div>
+                    <div style="font-size: 1.05rem; color: var(--navy); font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">Anos de Mercado</div>
+                </div>
+                <div style="min-width: 180px;">
+                    <div style="font-size: 2.8rem; font-weight: bold; color: var(--blue); line-height: 1.1; margin-bottom: 8px;">1.500 kg</div>
+                    <div style="font-size: 1.05rem; color: var(--navy); font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">Capacidade de Carga</div>
+                    <div style="font-size: 0.9rem; color: var(--muted); margin-top: 4px;">Paletes completos</div>
+                </div>
+                <div style="min-width: 180px;">
+                    <div style="font-size: 2.8rem; font-weight: bold; color: var(--blue); line-height: 1.1; margin-bottom: 8px;">+238.000</div>
+                    <div style="font-size: 1.05rem; color: var(--navy); font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">Dispositivos sob Gestão</div>
+                </div>
+                <div style="min-width: 180px;">
+                    <div style="font-size: 2.8rem; font-weight: bold; color: var(--blue); line-height: 1.1; margin-bottom: 8px;">100%</div>
+                    <div style="font-size: 1.05rem; color: var(--navy); font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">Rastreabilidade</div>
+                </div>
+            </div>
+            <div style="font-size: 1.15rem; color: var(--muted); max-width: 700px; margin: 0 auto; line-height: 1.6;">
+                Soluções completas de robótica móvel que eliminam gargalos operacionais e elevam sua cadeia de suprimentos ao padrão Indústria 4.0.
+            </div>
+        </div>
+    </section>
+
+    <!-- PROPOSTA DE VALOR / LOCAÇÃO MGI -->
+    <section id="locacao-inteligente" style="padding: 72px 0; background: #fff;">
+        <div class="wrap answer-grid">
+            <div class="answer" style="border: 0; background: transparent; padding: 0;">
+                <span class="section-kicker" style="color: var(--blue); margin-bottom: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; display: block;">Modelo Operacional Previsível</span>
+                <h2 style="font-size: clamp(2rem, 3.2vw, 2.6rem); color: var(--navy); margin-bottom: 20px;">A locação que automatiza a movimentação interna</h2>
+                <p style="font-size: 1.06rem; color: var(--muted); margin-bottom: 16px;">No modelo de locação, você coloca robôs para transportar materiais, movimentar pallets e abastecer postos de trabalho por rotas definidas, sem imobilizar capital na compra. A automação da movimentação entra na operação com custo mensal previsível.</p>
+                <p style="font-size: 1.06rem; color: var(--muted); margin-bottom: 16px;">Os robôs integram-se ao fluxo interno, com navegação autônoma e acompanhamento em tempo real de posição, status e tarefas. Manutenção, atualização e reposição ficam por nossa conta, e a frota escala conforme a demanda da operação cresce, sem ativo ocioso no seu balanço.</p>
+                <p style="font-size: 1.06rem; color: var(--muted);">Oferecemos locação flexível de equipamentos corporativos, com implantação assistida, suporte técnico dedicado e gestão remota via plataforma <strong>MyINsights</strong>.</p>
+            </div>
+            <div style="width: 100%;">
+                <div style="border-radius: 20px; overflow: hidden; box-shadow: 0 16px 40px rgba(11,36,64,0.14); border: 1px solid var(--line);">
+                    <img src="https://mgi.com.br/wp-content/uploads/2026/09/image.png_202609080110-1.jpeg" alt="Robôs Autônomos para Movimentação Interna e Armazenagem MGI" style="width: 100%; height: auto; display: block; object-fit: cover;" loading="lazy" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BENEFÍCIOS DA SOLUÇÃO (OS 5 PILARES OFICIAIS MGI) -->
+    <section id="pilares-mgi" class="pillars-section">
+        <div class="wrap pillars-grid">
+            <div class="pillars-sticky-header">
+                <span class="section-kicker" style="color: var(--blue); text-transform: uppercase; font-weight: 800; letter-spacing: .08em;">Vantagens Estratégicas</span>
+                <h2>Benefícios da solução para seu negócio</h2>
+                <p>A locação transforma a automação da movimentação em custo operacional previsível, com a solução gerida de ponta a ponta.</p>
+                <div style="margin-top: 28px;">
+                    <a class="btn" style="background: var(--blue); color: #fff;" href="#orcamento">Solicitar proposta</a>
+                </div>
+            </div>
+            <div class="pillars-list">
+                <div class="pillar-card">
+                    <div class="pillar-card-header">
+                        <span class="pillar-num">01</span>
+                        <h3>Automação sem CAPEX</h3>
+                    </div>
+                    <p>Você automatiza o transporte interno sem comprar o equipamento nem imobilizar capital.</p>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-card-header">
+                        <span class="pillar-num">02</span>
+                        <h3>Custo mensal previsível</h3>
+                    </div>
+                    <p>Modelo OPEX com valor definido, que facilita planejamento e cálculo de retorno.</p>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-card-header">
+                        <span class="pillar-num">03</span>
+                        <h3>Solução completa inclusa</h3>
+                    </div>
+                    <p>Implantação, manutenção, suporte e integração fazem parte do contrato.</p>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-card-header">
+                        <span class="pillar-num">04</span>
+                        <h3>Escala conforme a demanda</h3>
+                    </div>
+                    <p>Aumente ou ajuste a frota de robôs conforme a operação cresce, sem prejuízo de ativo comprado.</p>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-card-header">
+                        <span class="pillar-num">05</span>
+                        <h3>Continuidade garantida</h3>
+                    </div>
+                    <p>Manutenção e reposição sob responsabilidade da MGI mantêm o fluxo interno rodando.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOLUÇÕES / TIPOS DE ROBÔS -->
+    <section id="solucoes">
+        <div class="wrap">
+            <h2>Modelos de Robôs para Intralogística e Movimentação</h2>
+            <p class="lead">Equipamentos robustos e modulares para cada etapa da sua cadeia de suprimentos:</p>
+            <div class="cards">
+                <div class="card">
+                    <h3>AMR para Movimentação de Paletes</h3>
+                    <p>Robôs de alta capacidade (até 1.500kg) com garfos e elevadores automáticos para transporte seguro de paletes padrão PBR.</p>
+                </div>
+                <div class="card">
+                    <h3>Robôs com Mesa de Rolos (Conveyor)</h3>
+                    <p>Integração direta com esteiras transportadoras para carga e descarga automática em linhas de montagem e expedição.</p>
+                </div>
+                <div class="card">
+                    <h3>AMR para Caixas e Picking (Tote-to-Person)</h3>
+                    <p>Agilidade máxima no fulfillment de e-commerce, transportando bandejas e caixas diretamente aos operadores de separação.</p>
+                </div>
+                <div class="card">
+                    <h3>Robôs Tracionadores / Rebocadores</h3>
+                    <p>Reboque autônomo de trens de carrinhos de suprimento em ambientes industriais, substituindo rebocadores manuais.</p>
+                </div>
+                <div class="card">
+                    <h3>Fleet Management System (FMS)</h3>
+                    <p>Software centralizado que coordena o tráfego dos robôs, prioriza missões e distribui recargas de bateria sem filas.</p>
+                </div>
+                <div class="card">
+                    <h3>Integração WMS / ERP / MES</h3>
+                    <p>Comunicação bidirecional via API para automação de ordens de transporte e baixa de inventário em tempo real.</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 40px;">
+                <a class="btn" style="background: #25D366; color: #fff; display: inline-flex; align-items: center; gap: 12px; font-size: 1.05rem; padding: 14px 28px;" href="https://wa.me/5511986350609?text=Olá,%20tenho%20interesse%20em%20Robôs%20para%20Logística" target="_blank" rel="noopener">
+                    <span style="text-align: left; line-height: 1.2;">Fale com um consultor!<br /><span style="font-weight: normal; font-size: 0.85em; opacity: 0.95;">pelo WhatsApp</span></span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEGMENTOS QUE ATENDEMOS (CARDS GRID) -->
+    <section id="segmentos" class="segmentos-section">
+        <div class="wrap">
+            <div class="segmentos-header">
+                <span class="section-kicker" style="color: var(--blue); font-weight: 800; letter-spacing: .08em; text-transform: uppercase;">Aplicações Reais</span>
+                <h2>Segmentos que Atendemos</h2>
+                <p>Tecnologia e gestão que mantêm o fluxo rodando, reduzem downtime e dão visibilidade sobre toda a operação.</p>
+            </div>
+            <div class="segmentos-grid">
+                <!-- Card 1: Logística -->
+                <div class="segmento-card">
+                    <div class="segmento-img-box">
+                        <img src="https://mgi.com.br/wp-content/uploads/2026/07/two-diverse-male-warehouse-workers-reaching-up-to-2026-04-13-21-39-08-utc-1024x683.jpg" alt="Logística e Centros de Distribuição" loading="lazy" />
+                    </div>
+                    <div class="segmento-body">
+                        <div class="segmento-title">Logística</div>
+                        <div class="segmento-divider"></div>
+                        <p class="segmento-desc">Operações logísticas vivem de agilidade e continuidade. Qualquer parada afeta prazos e produtividade. Atuamos com tecnologia e gestão que mantêm o fluxo rodando, reduzem downtime e dão visibilidade sobre a operação.</p>
+                    </div>
+                </div>
+                <!-- Card 2: Indústria -->
+                <div class="segmento-card">
+                    <div class="segmento-img-box">
+                        <img src="https://mgi.com.br/wp-content/uploads/2026/07/high-angle-view-over-the-factory-floor-and-assembl-2026-01-09-09-42-55-utc-1024x683.jpg" alt="Indústria e Chão de Fábrica" loading="lazy" />
+                    </div>
+                    <div class="segmento-body">
+                        <div class="segmento-title">Indústria</div>
+                        <div class="segmento-divider"></div>
+                        <p class="segmento-desc">A indústria não pode parar. Do chão de fábrica ao controle de produção, entregamos tecnologia e gestão que garantem continuidade, padronização e controle, mesmo em ambientes exigentes.</p>
+                    </div>
+                </div>
+                <!-- Card 3: Varejo -->
+                <div class="segmento-card">
+                    <div class="segmento-img-box">
+                        <img src="https://mgi.com.br/wp-content/uploads/2026/07/woman-in-crafting-workshop-2026-03-20-01-02-40-utc-1024x683.jpg" alt="Varejo e Shoppings" loading="lazy" />
+                    </div>
+                    <div class="segmento-body">
+                        <div class="segmento-title">Varejo</div>
+                        <div class="segmento-divider"></div>
+                        <p class="segmento-desc">No varejo, cada minuto de operação conta e a experiência do cliente é decisiva. Apoiamos lojas, redes e shoppings com tecnologia que agiliza o atendimento e sustenta a operação no ritmo do negócio.</p>
+                    </div>
+                </div>
+                <!-- Card 4: Saúde -->
+                <div class="segmento-card">
+                    <div class="segmento-img-box">
+                        <img src="https://mgi.com.br/wp-content/uploads/2026/07/diverse-doctors-discussing-work-and-walking-throug-2026-03-25-02-18-27-utc-1024x683.jpg" alt="Saúde e Hospitais" loading="lazy" />
+                    </div>
+                    <div class="segmento-body">
+                        <div class="segmento-title">Saúde</div>
+                        <div class="segmento-divider"></div>
+                        <p class="segmento-desc">Ambientes de saúde exigem precisão, segurança e disponibilidade constante. Entregamos tecnologia e gestão que apoiam a rotina de hospitais e clínicas, com foco em continuidade operacional e controle.</p>
+                    </div>
+                </div>
+                <!-- Card 5: Hotelaria -->
+                <div class="segmento-card">
+                    <div class="segmento-img-box">
+                        <img src="https://mgi.com.br/wp-content/uploads/2026/07/happy-receptionists-cooperating-while-working-on-a-2026-01-06-10-26-51-utc-1024x683.jpg" alt="Hotelaria e Resorts" loading="lazy" />
+                    </div>
+                    <div class="segmento-body">
+                        <div class="segmento-title">Hotelaria</div>
+                        <div class="segmento-divider"></div>
+                        <p class="segmento-desc">A hotelaria se sustenta na experiência do hóspede e na eficiência da operação. Apoiamos hotéis e resorts com tecnologia que moderniza o atendimento e mantém os serviços funcionando em horários estendidos.</p>
+                    </div>
+                </div>
+                <!-- Card 6: Facilities -->
+                <div class="segmento-card">
+                    <div class="segmento-img-box">
+                        <img src="https://mgi.com.br/wp-content/uploads/2026/07/people-walking-in-modern-office-hallway-2026-01-09-10-24-53-utc-1024x683.jpg" alt="Gestão de Facilities" loading="lazy" />
+                    </div>
+                    <div class="segmento-body">
+                        <div class="segmento-title">Facilities</div>
+                        <div class="segmento-divider"></div>
+                        <p class="segmento-desc">A gestão de facilities precisa padronizar serviços e controlar custos em múltiplos ambientes. Apoiamos operações com tecnologia e gestão que trazem eficiência, padronização e previsibilidade.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CARROSSEL GALERIA DE ROBÔS MGI (EXACT FROM LIVE SITE / LOGÍSTICA) -->
+    <section class="media-carousel-section">
+        <div class="wrap">
+            <div style="text-align: center; max-width: 820px; margin: 0 auto 36px;">
+                <span class="section-kicker" style="color: #7bd2ff; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 8px; display: inline-block;">Frota Homologada</span>
+                <h2 style="color: #fff; margin: 0 auto 12px; text-align: center;">Robôs Inteligentes em Operação</h2>
+                <p class="carousel-sub" style="color: #cfe0f5; margin: 0 auto; font-size: 1.06rem; text-align: center;">Conheça os principais modelos autônomos integrados pela MGI para transporte interno, movimentação de cargas e intralogística inteligente.</p>
+            </div>
+            
+            <div class="robots-carousel-wrapper">
+                <!-- Floating Arrows -->
+                <button type="button" class="robots-arrow-btn prev" onclick="mgiScrollRobots(-1)" aria-label="Slide anterior">&#10094;</button>
+                <button type="button" class="robots-arrow-btn next" onclick="mgiScrollRobots(1)" aria-label="Próximo slide">&#10095;</button>
+
+                <!-- Track with the 3 official cards -->
+                <div class="media-carousel-track" id="mediaTrack">
+                    <div class="media-slide">
+                        <img src="https://mgi.com.br/wp-content/uploads/2026/07/1-2.png" alt="Robôs para Logística e Movimentação - Modelo 1" loading="lazy" />
+                    </div>
+                    <div class="media-slide">
+                        <img src="https://mgi.com.br/wp-content/uploads/2026/07/2-2.png" alt="Robôs para Logística e Movimentação - Modelo 2" loading="lazy" />
+                    </div>
+                    <div class="media-slide">
+                        <img src="https://mgi.com.br/wp-content/uploads/2026/07/3-2.png" alt="Robôs para Logística e Movimentação - Modelo 3" loading="lazy" />
+                    </div>
+                </div>
+
+                <!-- Pagination Dots -->
+                <div class="robots-dots-nav" id="mediaDots">
+                    <button type="button" class="robots-dot active" onclick="mgiGoToRobotSlide(0)" aria-label="Slide 1"></button>
+                    <button type="button" class="robots-dot" onclick="mgiGoToRobotSlide(1)" aria-label="Slide 2"></button>
+                    <button type="button" class="robots-dot" onclick="mgiGoToRobotSlide(2)" aria-label="Slide 3"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function mgiScrollRobots(direction) {
+            const track = document.getElementById('mediaTrack');
+            if (!track) return;
+            const slide = track.querySelector('.media-slide');
+            const slideWidth = slide ? slide.offsetWidth + 24 : 360;
+            track.scrollBy({ left: direction * slideWidth, behavior: 'smooth' });
+        }
+
+        function mgiGoToRobotSlide(index) {
+            const track = document.getElementById('mediaTrack');
+            if (!track) return;
+            const slide = track.querySelectorAll('.media-slide')[index];
+            if (slide) {
+                track.scrollTo({ left: slide.offsetLeft - track.offsetLeft - 10, behavior: 'smooth' });
+            }
+        }
+
+        (function setupMediaCarouselDots() {
+            const track = document.getElementById('mediaTrack');
+            const dots = document.querySelectorAll('#mediaDots .robots-dot');
+            if (!track || !dots.length) return;
+
+            track.addEventListener('scroll', () => {
+                const slides = track.querySelectorAll('.media-slide');
+                const scrollLeft = track.scrollLeft;
+                let activeIdx = 0;
+                slides.forEach((s, idx) => {
+                    if (s.offsetLeft - track.offsetLeft <= scrollLeft + 50) {
+                        activeIdx = idx;
+                    }
+                });
+                dots.forEach((dot, idx) => {
+                    dot.classList.toggle('active', idx === activeIdx);
+                });
+            }, { passive: true });
+        })();
+    </script>
+
+    <!-- DIFERENCIAIS MGI (6 PILARES ESTRATÉGICOS) -->
+    <section id="diferenciais" class="benefits">
+        <div class="wrap">
+            <div style="text-align: center; max-width: 780px; margin: 0 auto 36px;">
+                <span class="section-kicker" style="color: var(--blue); text-transform: uppercase; font-weight: 800; letter-spacing: .08em; display: block; margin-bottom: 8px;">Por que a MGI?</span>
+                <h2>Diferenciais MGI</h2>
+                <p style="color: var(--muted); font-size: 1.05rem;">Metodologia consultiva, suporte técnico próprio e integração nativa que garantem o sucesso da automação na sua empresa.</p>
+            </div>
+            <div class="ben-grid">
+                <div class="ben">
+                    <div class="ico">📋</div>
+                    <h3>Projeto consultivo</h3>
+                    <p>Mapeamos sua operação e desenhamos a automação que faz sentido para o seu negócio, antes de indicar qualquer equipamento.</p>
+                </div>
+                <div class="ben">
+                    <div class="ico">🚀</div>
+                    <h3>Implantação assistida</h3>
+                    <p>Acompanhamos a entrada dos robôs na operação, do teste inicial ao funcionamento pleno, sem improviso.</p>
+                </div>
+                <div class="ben">
+                    <div class="ico">🛠️</div>
+                    <h3>Suporte especializado</h3>
+                    <p>Assistência técnica própria e um time que conhece a sua operação, não terceirizamos o que é crítico.</p>
+                </div>
+                <div class="ben">
+                    <div class="ico">🔗</div>
+                    <h3>Integração com a operação do cliente</h3>
+                    <p>Os robôs entram no seu fluxo real de trabalho, integrados aos processos que já existem.</p>
+                </div>
+                <div class="ben">
+                    <div class="ico">💼</div>
+                    <h3>Modelos flexíveis de contratação</h3>
+                    <p>Locação, projeto ou modelos combinados, ajustados ao momento e ao caixa da sua empresa.</p>
+                </div>
+                <div class="ben">
+                    <div class="ico">🌐</div>
+                    <h3>Ecossistema completo de tecnologia</h3>
+                    <p>Robótica dentro de um portfólio que já inclui mobile, computadores, impressão e gestão de ativos com a plataforma MyIN.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMO FUNCIONA -->
+    <section id="como-funciona">
+        <div class="wrap">
+            <h2>Fases do Projeto de Automação Logística</h2>
+            <div class="steps">
+                <div class="step">
+                    <h3>Diagnóstico de Fluxo</h3>
+                    <p>Mapeamos seus fluxos de transporte, tempos de ciclo e calculamos o ROI.</p>
+                </div>
+                <div class="step">
+                    <h3>Simulação e Integração</h3>
+                    <p>Criamos o gêmeo digital do armazém e conectamos a API com seu WMS/ERP.</p>
+                </div>
+                <div class="step">
+                    <h3>Implantação e Testes</h3>
+                    <p>Mapeamento LiDAR do piso, testes com carga real e validação de segurança.</p>
+                </div>
+                <div class="step">
+                    <h3>Go-Live e Suporte</h3>
+                    <p>Treinamento da equipe e monitoramento contínuo de telemetria pela MGI.</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 40px;">
+                <a class="btn" style="background: #25D366; color: #fff; display: inline-flex; align-items: center; gap: 12px; font-size: 1.05rem; padding: 14px 28px;" href="https://wa.me/5511986350609?text=Olá,%20tenho%20interesse%20em%20Robôs%20para%20Logística" target="_blank" rel="noopener">
+                    <span style="text-align: left; line-height: 1.2;">Fale com um consultor!<br /><span style="font-weight: normal; font-size: 0.85em; opacity: 0.95;">pelo WhatsApp</span></span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- FAQ -->
+    <section id="faq" class="faq">
+        <div class="wrap">
+            <h2>Perguntas Frequentes sobre Robôs Logísticos</h2>
+            <details open="">
+                <summary>Qual é a diferença entre um AGV tradicional e um AMR?</summary>
+                <p>Enquanto os AGVs dependem de trilhos ou fitas magnéticas fixas, os AMRs (Autonomous Mobile Robots) navegam de forma 100% autônoma por sensores LiDAR e IA, desviando dinamicamente de pessoas e outros veículos.</p>
+            </details>
+            <details>
+                <summary>Os robôs integram com sistemas WMS e ERP?</summary>
+                <p>Sim. Nossa plataforma de gestão de frotas (Fleet Management) integra-se via API com os principais softwares de WMS, ERP e MES do mercado para automação total de ordens de transporte.</p>
+            </details>
+            <details>
+                <summary>Qual a capacidade de carga dos robôs logísticos?</summary>
+                <p>Disponibilizamos modelos que suportam desde cargas leves de 100 kg até robôs industriais pesados com capacidade para mais de 1.500 kg (movimentação completa de paletes padrão).</p>
+            </details>
+            <details>
+                <summary>Como é feito o suporte e a manutenção da frota?</summary>
+                <p>O contrato de locação MGI inclui suporte técnico contínuo, telemetria em tempo real, manutenção preventiva programada e pronta reposição de peças sem custos extras.</p>
+            </details>
+        </div>
+    </section>
+
+
+    <!-- SOBRE O GRUPO -->
+    <section id="sobre" style="background: var(--bg-soft); padding: 64px 0;">
+        <div class="wrap" style="text-align: center; max-width: 760px;">
+            <img style="height: 48px; width: auto; margin-bottom: 20px; display: inline-block;" src="https://grupomgitech.com.br/wp-content/uploads/2026/01/logo-grupomgi.png" alt="Grupo MGITECH" />
+            <h2 style="font-size: 1.6rem; color: var(--navy); margin-bottom: 18px;">Uma empresa do Grupo MGITECH</h2>
+            <p style="font-size: 1.08rem; color: var(--muted); line-height: 1.7; margin: 0;">Há mais de 34 anos, o Grupo MGITECH conecta tecnologia e operação. Somos pioneiros em intralogística e automação corporativa, com engenharia especializada e suporte em todo o Brasil.</p>
+        </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="cta">
+        <div class="wrap" style="text-align: center;">
+            <h2>Leve sua intralogística para o padrão Indústria 4.0</h2>
+            <p style="max-width: 60ch; margin: 0 auto 24px;">Solicite um estudo de viabilidade técnica e receba uma simulação personalizada para a sua operação.</p>
+            <a class="btn btn-ghost" href="#orcamento">Solicitar estudo de viabilidade</a>
+        </div>
+    </section>
+
+    <!-- COOKIE BAR -->
+    <div id="mgi-cookie-bar" class="cookie-bar">
+        <div class="wrap">
+            <p>Utilizamos cookies para melhorar sua experiência de navegação, personalizar conteúdos e analisar o tráfego do site. Ao continuar navegando, você concorda com a nossa <a href="/politica-de-privacidade/">Política de Privacidade</a>.</p>
+            <button class="btn">Aceitar</button>
+        </div>
+    </div>
+</div>
+<!-- /wp:html -->

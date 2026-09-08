@@ -1,0 +1,61 @@
+{
+  "locacao-de-notebooks": {
+    "n_images": 32,
+    "n_videos": 0,
+    "external_cdn": [
+      "https://fonts.googleapis.com/css2?family=DM+Sans..."
+    ],
+    "videos": [],
+    "standalone_size_bytes": 2601668,
+    "standalone_skipped_over_5mb": false,
+    "web_size_bytes": 91603
+  },
+  "locacao-de-dispositivos-moveis": {
+    "n_images": 26,
+    "n_videos": 0,
+    "external_cdn": [
+      "https://fonts.googleapis.com/css2?family=DM+Sans..."
+    ],
+    "videos": [],
+    "standalone_size_bytes": 1706590,
+    "standalone_skipped_over_5mb": false,
+    "web_size_bytes": 85511
+  },
+  "robos-para-limpeza": {
+    "n_images": 14,
+    "n_videos": 0,
+    "external_cdn": [
+      "https://fonts.googleapis.com/css2?family=DM+Sans..."
+    ],
+    "videos": [],
+    "standalone_size_bytes": 2039008,
+    "standalone_skipped_over_5mb": false,
+    "web_size_bytes": 81107
+  },
+  "robos-para-logistica-e-movimentacao": {
+    "n_images": 13,
+    "n_videos": 0,
+    "external_cdn": [
+      "https://fonts.googleapis.com/css2?family=DM+Sans..."
+    ],
+    "videos": [],
+    "standalone_size_bytes": 1781704,
+    "standalone_skipped_over_5mb": false,
+    "web_size_bytes": 73835
+  },
+  "robos-para-atendimento-e-entrega": {
+    "n_images": 18,
+    "n_videos": 3,
+    "external_cdn": [
+      "https://fonts.googleapis.com/css2?family=DM+Sans..."
+    ],
+    "videos": [
+      "https://cdn.pudutech.com/website/video/kettybot/frtt_en.mp4",
+      "https://cdn.pudutech.com/website/video/kettybot/in1.mp4",
+      "https://cdn.pudutech.com/website/video/kettybot/pc_cooperation_en.mp4"
+    ],
+    "standalone_size_bytes": 3137644,
+    "standalone_skipped_over_5mb": false,
+    "web_size_bytes": 81466
+  }
+}
