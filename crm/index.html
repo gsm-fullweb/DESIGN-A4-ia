@@ -8,7 +8,7 @@
 :root{--bg:#f6f7f9;--card:#fff;--tx:#1b1f24;--mut:#6b7280;--bd:#e3e6ea;--ac:#1d4ed8;--ok:#15803d}
 @media(prefers-color-scheme:dark){:root{--bg:#0f1216;--card:#181c22;--tx:#e8eaed;--mut:#9aa3ad;--bd:#2a3039;--ac:#6b9bff;--ok:#4ade80}}
 *{box-sizing:border-box}body{margin:0;font:14px system-ui,sans-serif;background:var(--bg);color:var(--tx)}
-header{padding:14px 16px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;border-bottom:1px solid var(--bd);background:var(--card);position:sticky;top:0;z-index:2}
+header{padding:14px 16px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;border-bottom:1px solid var(--bd);background:var(--card)}
 h1{font-size:17px;margin:0 8px 0 0}
 input,select,button{font:inherit;padding:7px 9px;border:1px solid var(--bd);border-radius:6px;background:var(--card);color:var(--tx)}
 button{cursor:pointer}button.p{background:var(--ac);color:#fff;border-color:var(--ac)}
@@ -20,9 +20,9 @@ button{cursor:pointer}button.p{background:var(--ac);color:#fff;border-color:var(
 .wrap{overflow:auto;padding:0 16px 24px}
 table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--bd);border-radius:8px;min-width:980px}
 th,td{padding:8px 10px;border-bottom:1px solid var(--bd);text-align:left;vertical-align:top}
-th{font-size:12px;color:var(--mut);cursor:pointer;white-space:nowrap;position:sticky;top:57px;background:var(--card)}
+th{font-size:12px;color:var(--mut);cursor:pointer;white-space:nowrap;background:var(--card)}
 td.n{text-align:right;font-variant-numeric:tabular-nums}
-a{color:var(--ac);text-decoration:none}.tag{font-size:11px;border:1px solid var(--bd);border-radius:10px;padding:1px 7px;color:var(--mut)}
+a{color:var(--ac);text-decoration:none}.tag{white-space:nowrap;font-size:11px;border:1px solid var(--bd);border-radius:10px;padding:1px 7px;color:var(--mut)}
 .bio{max-width:260px;color:var(--mut);font-size:12px}
 textarea{width:170px;height:34px;font:inherit;font-size:12px}
 #vazio{padding:40px;text-align:center;color:var(--mut)}
@@ -34,19 +34,22 @@ textarea{width:170px;height:34px;font:inherit;font-size:12px}
   <input type="file" id="arq" accept=".json,.csv" title="Carregar leads.json">
   <input id="q" placeholder="Buscar @, nome ou bio" style="min-width:200px">
   <select id="fn"></select>
+  <select id="ftier"><option value="Q">Faixas A + B (qualificados)</option><option value="A">Só A - Prioritário</option><option value="B">Só B - Qualificado</option><option value="C">C - Fora do perfil</option><option value="">Todos coletados</option></select>
   <select id="fscore"><option value="0">Score 30+: todos</option><option value="25">≥ 25</option><option value="50">≥ 50</option></select>
   <select id="fct"><option value="">Contato: todos</option><option value="email">Com e-mail</option><option value="wpp">Com WhatsApp</option><option value="any">Com e-mail ou WhatsApp</option></select>
-  <label>Seg. <input id="smin" type="number" value="5000" style="width:80px"> – <input id="smax" type="number" value="500000" style="width:90px"></label>
-  <label><input type="checkbox" id="br" checked> Só Brasil</label>
+  <label>Seg. <input id="smin" type="number" value="" style="width:80px"> – <input id="smax" type="number" value="" style="width:90px"></label>
+  
   <button id="csv" class="p">Exportar CSV</button>
 </header>
+<div class="kpis" id="resumo"></div>
 <div class="kpis" id="kpis"></div>
 <div class="funil" id="funil"></div>
 <div class="wrap"><table id="t"><thead></thead><tbody></tbody></table><div id="vazio" hidden>Carregue o arquivo <b>leads.json</b> gerado por scripts/build_leads.py</div></div>
+<script>/*LEADS_PLACEHOLDER*/</script>
 <script>
 const ST=["Novo","Contatado","Respondeu","Negociando","Fechado","Descartado"];
 const NICHOS=["Todos os nichos","Academia","Alimentação","Suplementação","Corrida/Triatlo","CrossFit","Bem-estar","Outros"];
-const COLS=[["usuario","Perfil"],["nicho_principal","Nicho"],["seguidores","Seguidores"],["engajamento","Eng. %"],["media_views","Views médias"],["score_30mais","Score 30+"],["contato","Contato"],["ultimo_post","Último post"],["status","Status"],["obs","Observações"]];
+const COLS=[["faixa","Faixa"],["usuario","Perfil"],["nicho_principal","Nicho"],["seguidores","Seguidores"],["engajamento","Eng. %"],["media_views","Views médias"],["score_30mais","Score 30+"],["contato","Contato"],["status","Status"],["obs","Observações"]];
 let L=[],sortK="score_30mais",sortD=-1,fFunil="";
 const $=s=>document.querySelector(s);
 const fmt=n=>n>=1e6?(n/1e6).toFixed(1)+"M":n>=1e3?(n/1e3).toFixed(1)+"k":n;
@@ -54,32 +57,33 @@ const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&g
 const store=()=>{try{return JSON.parse(localStorage.getItem("crm_estado")||"{}")}catch(e){return{}}};
 const save=(u,k,v)=>{try{const s=store();(s[u]=s[u]||{})[k]=v;localStorage.setItem("crm_estado",JSON.stringify(s))}catch(e){}};
 function load(data){const s=store();L=data.map(l=>({...l,...(s[l.usuario]||{}),contato:l.email||l.whatsapp||""}));$("#vazio").hidden=!!L.length;render()}
-function filtered(){const q=$("#q").value.toLowerCase(),n=$("#fn").value,sc=+$("#fscore").value,ct=$("#fct").value,a=+$("#smin").value||0,b=+$("#smax").value||1e12,br=$("#br").checked;
+function filtered(){const q=$("#q").value.toLowerCase(),n=$("#fn").value,sc=+$("#fscore").value,ct=$("#fct").value,a=+$("#smin").value||0,b=+$("#smax").value||1e12,ti=$("#ftier").value;
  return L.filter(l=>(!q||(l.usuario+l.nome+l.bio).toLowerCase().includes(q))&&(!n||n==NICHOS[0]||l.nicho_principal==n)&&l.score_30mais>=sc&&
- (!ct||(ct=="email"?l.email:ct=="wpp"?l.whatsapp:(l.email||l.whatsapp)))&&l.seguidores>=a&&l.seguidores<=b&&(!br||l.pais_br)&&(!fFunil||l.status==fFunil))
+ (!ct||(ct=="email"?l.email:ct=="wpp"?l.whatsapp:(l.email||l.whatsapp)))&&l.seguidores>=a&&l.seguidores<=b&&(!ti||(ti=="Q"?l.faixa[0]!="C":l.faixa[0]==ti))&&(!fFunil||l.status==fFunil))
  .sort((x,y)=>(x[sortK]>y[sortK]?1:x[sortK]<y[sortK]?-1:0)*sortD)}
 function render(){const f=filtered();
+ const nA=L.filter(l=>l.faixa[0]=="A").length,nB=L.filter(l=>l.faixa[0]=="B").length;
+ $("#resumo").innerHTML=`<div class="k"><b>${L.length}</b><span>Perfis coletados</span></div><div class="k"><b>${nA+nB}</b><span>Qualificados (A+B)</span></div><div class="k" style="border-color:var(--ok)"><b>${nA}</b><span>A - Prioritários</span></div><div class="k"><b>${nB}</b><span>B - Qualificados</span></div><div class="k"><b>${L.length-nA-nB}</b><span>Fora do perfil</span></div>`;
  $("#kpis").innerHTML=[["Leads",f.length],["Com e-mail",f.filter(l=>l.email).length],["Com WhatsApp",f.filter(l=>l.whatsapp).length],["Score ≥ 50",f.filter(l=>l.score_30mais>=50).length],["Fechados",L.filter(l=>l.status=="Fechado").length]].map(([a,b])=>`<div class="k"><b>${b}</b><span>${a}</span></div>`).join("");
  $("#funil").innerHTML=`<button class="${fFunil?"":"on"}" data-s="">Todos</button>`+ST.map(s=>`<button class="${fFunil==s?"on":""}" data-s="${s}">${s} (${L.filter(l=>l.status==s).length})</button>`).join("");
  $("#t thead").innerHTML="<tr>"+COLS.map(([k,t])=>`<th data-k="${k}">${t}${sortK==k?(sortD>0?" ▲":" ▼"):""}</th>`).join("")+"</tr>";
- $("#t tbody").innerHTML=f.slice(0,600).map(l=>`<tr><td><a href="${esc(l.url)}" target="_blank" rel="noopener">@${esc(l.usuario)}</a>${l.verificado?" ✓":""}<div class="bio">${esc(l.bio).slice(0,110)}</div></td>
+ $("#t tbody").innerHTML=f.slice(0,600).map(l=>`<tr><td><span class="tag" title="${esc(l.motivo_exclusao)}" style="${l.faixa[0]=="A"?"color:var(--ok);border-color:var(--ok)":""}">${esc(l.faixa)}</span></td><td><a href="${esc(l.url)}" target="_blank" rel="noopener">@${esc(l.usuario)}</a>${l.verificado?" ✓":""}<div class="bio">${esc(l.bio).slice(0,110)}</div></td>
  <td><span class="tag">${esc(l.nicho_principal)}</span></td><td class="n">${fmt(l.seguidores)}</td><td class="n">${l.engajamento}</td><td class="n">${fmt(l.media_views)}</td>
  <td class="n" title="${esc((l.sinais_30mais||[]).join(", "))}">${l.score_30mais}</td>
  <td>${l.email?`<a href="mailto:${esc(l.email)}">${esc(l.email)}</a>`:""}${l.whatsapp?`<div>${esc(l.whatsapp)}</div>`:""}${l.link_bio&&!l.email?`<div><a href="${esc(l.link_bio)}" target="_blank" rel="noopener">link bio</a></div>`:""}</td>
- <td>${(l.ultimo_post||"").slice(0,10)}</td>
- <td><select data-u="${esc(l.usuario)}" class="st">${ST.map(s=>`<option ${s==l.status?"selected":""}>${s}</option>`).join("")}</select></td>
+  <td><select data-u="${esc(l.usuario)}" class="st">${ST.map(s=>`<option ${s==l.status?"selected":""}>${s}</option>`).join("")}</select></td>
  <td><textarea data-u="${esc(l.usuario)}" class="ob">${esc(l.obs)}</textarea></td></tr>`).join("");
  if(f.length>600)$("#t tbody").insertAdjacentHTML("beforeend",`<tr><td colspan=10>Mostrando 600 de ${f.length}. Refine os filtros.</td></tr>`)}
 $("#fn").innerHTML=NICHOS.map(n=>`<option>${n}</option>`).join("");
-["q","fn","fscore","fct","smin","smax","br"].forEach(i=>$("#"+i).addEventListener("input",render));
+["q","fn","ftier","fscore","fct","smin","smax"].forEach(i=>$("#"+i).addEventListener("input",render));
 $("#funil").onclick=e=>{if(e.target.dataset.s!==undefined){fFunil=e.target.dataset.s;render()}};
 $("#t thead").onclick=e=>{const k=e.target.dataset.k;if(!k)return;sortD=sortK==k?-sortD:-1;sortK=k;render()};
 $("#t tbody").addEventListener("change",e=>{const u=e.target.dataset.u;if(!u)return;const l=L.find(x=>x.usuario==u);const k=e.target.classList.contains("st")?"status":"obs";l[k]=e.target.value;save(u,k,e.target.value);render()});
 $("#arq").onchange=async e=>{const f=e.target.files[0];if(f)load(JSON.parse(await f.text()))};
-$("#csv").onclick=()=>{const f=filtered(),h=["usuario","url","nicho_principal","seguidores","engajamento","media_views","score_30mais","email","whatsapp","link_bio","ultimo_post","status","obs","bio"];
+$("#csv").onclick=()=>{const f=filtered(),h=["faixa","motivo_exclusao","usuario","url","nicho_principal","seguidores","engajamento","media_views","score_30mais","email","whatsapp","link_bio","ultimo_post","status","obs","bio"];
  const c=v=>'"'+String(v??"").replace(/"/g,'""').replace(/\n/g," ")+'"';const t=[h.join(",")].concat(f.map(l=>h.map(k=>c(l[k])).join(","))).join("\n");
  const a=document.createElement("a");a.href=URL.createObjectURL(new Blob(["﻿"+t],{type:"text/csv"}));a.download="leads.csv";a.click()};
-fetch("../data/leads.json").then(r=>r.ok?r.json():Promise.reject()).then(load).catch(()=>{$("#vazio").hidden=false});
+if(window.__LEADS__)load(window.__LEADS__);else fetch("../data/leads.json").then(r=>r.ok?r.json():Promise.reject()).then(load).catch(()=>{$("#vazio").hidden=false});
 </script>
 </body>
 </html>
