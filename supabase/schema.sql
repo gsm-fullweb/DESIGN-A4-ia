@@ -27,6 +27,7 @@ create table if not exists public.leads (
   youtube       text,
   linkedin      text,
   site          text,
+  vende_live    boolean default false,
   origem        text default 'apify:clockworks/tiktok-scraper',
   status        text not null default 'Novo'
                 check (status in ('Novo','Contatado','Respondeu','Negociando','Fechado','Descartado')),

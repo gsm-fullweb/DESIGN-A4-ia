@@ -88,6 +88,13 @@ for name, vids in by.items():
         "status": "Novo", "obs": "",
     })
 
+import os
+if os.path.exists("data/lives.json"):
+    have = {l["usuario"].lower() for l in leads}
+    for l in json.load(open("data/lives.json", encoding="utf-8")):
+        if l["usuario"].lower() not in have:
+            leads.append(l)
+
 leads.sort(key=lambda l: (l["faixa"][0] != "C", l["score_30mais"], bool(l["email"]), l["seguidores"]), reverse=True)
 json.dump(leads, open(dst, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 

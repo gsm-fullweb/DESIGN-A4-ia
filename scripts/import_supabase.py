@@ -8,7 +8,7 @@ url = os.environ["SUPABASE_URL"].rstrip("/")
 key = os.environ["SUPABASE_SERVICE_KEY"]
 CAMPOS = ["usuario","nome","url","faixa","motivo_exclusao","nicho_principal","nichos","seguidores",
           "curtidas_total","videos","verificado","engajamento","media_views","score_30mais",
-          "sinais_30mais","pais_br","bio","link_bio","email","whatsapp"]
+          "sinais_30mais","pais_br","bio","link_bio","email","whatsapp","vende_live"]
 leads = json.load(open("data/leads.json", encoding="utf-8"))
 rows = [{k: l.get(k) for k in CAMPOS} for l in leads]  # status/obs/redes ficam fora: nao sobrescreve o CRM
 for i in range(0, len(rows), 200):

@@ -34,7 +34,7 @@ textarea{width:170px;height:34px;font:inherit;font-size:12px}
   <input type="file" id="arq" accept=".json,.csv" title="Carregar leads.json">
   <input id="q" placeholder="Buscar @, nome ou bio" style="min-width:200px">
   <select id="fn"></select>
-  <select id="ftier"><option value="Q">Faixas A + B (qualificados)</option><option value="A">Só A - Prioritário</option><option value="B">Só B - Qualificado</option><option value="C">C - Fora do perfil</option><option value="">Todos coletados</option></select>
+  <select id="ftier"><option value="Q">Faixas A + B (qualificados)</option><option value="A">Só A - Prioritário</option><option value="B">Só B - Qualificado</option><option value="C">C - Fora do perfil</option><option value="">Todos coletados</option><option value="L">🔴 Vendem por live</option></select>
   <select id="fscore"><option value="0">Score 30+: todos</option><option value="25">≥ 25</option><option value="50">≥ 50</option></select>
   <select id="fct"><option value="">Contato: todos</option><option value="email">Com e-mail</option><option value="wpp">Com WhatsApp</option><option value="any">Com e-mail ou WhatsApp</option></select>
   <label>Seg. <input id="smin" type="number" value="" style="width:80px"> – <input id="smax" type="number" value="" style="width:90px"></label>
@@ -59,15 +59,15 @@ const save=(u,k,v)=>{try{const s=store();(s[u]=s[u]||{})[k]=v;localStorage.setIt
 function load(data){const s=store();L=data.map(l=>({...l,...(s[l.usuario]||{}),contato:l.email||l.whatsapp||""}));$("#vazio").hidden=!!L.length;render()}
 function filtered(){const q=$("#q").value.toLowerCase(),n=$("#fn").value,sc=+$("#fscore").value,ct=$("#fct").value,a=+$("#smin").value||0,b=+$("#smax").value||1e12,ti=$("#ftier").value;
  return L.filter(l=>(!q||(l.usuario+l.nome+l.bio).toLowerCase().includes(q))&&(!n||n==NICHOS[0]||l.nicho_principal==n)&&l.score_30mais>=sc&&
- (!ct||(ct=="email"?l.email:ct=="wpp"?l.whatsapp:(l.email||l.whatsapp)))&&l.seguidores>=a&&l.seguidores<=b&&(!ti||(ti=="Q"?l.faixa[0]!="C":l.faixa[0]==ti))&&(!fFunil||l.status==fFunil))
+ (!ct||(ct=="email"?l.email:ct=="wpp"?l.whatsapp:(l.email||l.whatsapp)))&&l.seguidores>=a&&l.seguidores<=b&&(!ti||(ti=="L"?l.vende_live:ti=="Q"?l.faixa[0]!="C":l.faixa[0]==ti))&&(!fFunil||l.status==fFunil))
  .sort((x,y)=>(x[sortK]>y[sortK]?1:x[sortK]<y[sortK]?-1:0)*sortD)}
 function render(){const f=filtered();
  const nA=L.filter(l=>l.faixa[0]=="A").length,nB=L.filter(l=>l.faixa[0]=="B").length;
  $("#resumo").innerHTML=`<div class="k"><b>${L.length}</b><span>Perfis coletados</span></div><div class="k"><b>${nA+nB}</b><span>Qualificados (A+B)</span></div><div class="k" style="border-color:var(--ok)"><b>${nA}</b><span>A - Prioritários</span></div><div class="k"><b>${nB}</b><span>B - Qualificados</span></div><div class="k"><b>${L.length-nA-nB}</b><span>Fora do perfil</span></div>`;
- $("#kpis").innerHTML=[["Leads",f.length],["Com e-mail",f.filter(l=>l.email).length],["Com WhatsApp",f.filter(l=>l.whatsapp).length],["Score ≥ 50",f.filter(l=>l.score_30mais>=50).length],["Fechados",L.filter(l=>l.status=="Fechado").length]].map(([a,b])=>`<div class="k"><b>${b}</b><span>${a}</span></div>`).join("");
+ $("#kpis").innerHTML=[["Leads",f.length],["Com e-mail",f.filter(l=>l.email).length],["Com WhatsApp",f.filter(l=>l.whatsapp).length],["Vendem por live",f.filter(l=>l.vende_live).length],["Score ≥ 50",f.filter(l=>l.score_30mais>=50).length],["Fechados",L.filter(l=>l.status=="Fechado").length]].map(([a,b])=>`<div class="k"><b>${b}</b><span>${a}</span></div>`).join("");
  $("#funil").innerHTML=`<button class="${fFunil?"":"on"}" data-s="">Todos</button>`+ST.map(s=>`<button class="${fFunil==s?"on":""}" data-s="${s}">${s} (${L.filter(l=>l.status==s).length})</button>`).join("");
  $("#t thead").innerHTML="<tr>"+COLS.map(([k,t])=>`<th data-k="${k}">${t}${sortK==k?(sortD>0?" ▲":" ▼"):""}</th>`).join("")+"</tr>";
- $("#t tbody").innerHTML=f.slice(0,600).map(l=>`<tr><td><span class="tag" title="${esc(l.motivo_exclusao)}" style="${l.faixa[0]=="A"?"color:var(--ok);border-color:var(--ok)":""}">${esc(l.faixa)}</span></td><td><a href="${esc(l.url)}" target="_blank" rel="noopener">@${esc(l.usuario)}</a>${l.verificado?" ✓":""}<div class="bio">${esc(l.bio).slice(0,110)}</div></td>
+ $("#t tbody").innerHTML=f.slice(0,600).map(l=>`<tr><td><span class="tag" title="${esc(l.motivo_exclusao)}" style="${l.faixa[0]=="A"?"color:var(--ok);border-color:var(--ok)":""}">${esc(l.faixa)}</span></td><td><a href="${esc(l.url)}" target="_blank" rel="noopener">@${esc(l.usuario)}</a>${l.verificado?" ✓":""}${l.vende_live?" <span class=\"tag\" style=\"color:#dc2626;border-color:#dc2626\">🔴 Live</span>":""}<div class="bio">${esc(l.bio).slice(0,110)}</div></td>
  <td><span class="tag">${esc(l.nicho_principal)}</span></td><td class="n">${fmt(l.seguidores)}</td><td class="n">${l.engajamento}</td><td class="n">${fmt(l.media_views)}</td>
  <td class="n" title="${esc((l.sinais_30mais||[]).join(", "))}">${l.score_30mais}</td>
  <td>${l.email?`<a href="mailto:${esc(l.email)}">${esc(l.email)}</a>`:""}${l.whatsapp?`<div>${esc(l.whatsapp)}</div>`:""}${l.link_bio&&!l.email?`<div><a href="${esc(l.link_bio)}" target="_blank" rel="noopener">link bio</a></div>`:""}</td>
@@ -80,7 +80,7 @@ $("#funil").onclick=e=>{if(e.target.dataset.s!==undefined){fFunil=e.target.datas
 $("#t thead").onclick=e=>{const k=e.target.dataset.k;if(!k)return;sortD=sortK==k?-sortD:-1;sortK=k;render()};
 $("#t tbody").addEventListener("change",e=>{const u=e.target.dataset.u;if(!u)return;const l=L.find(x=>x.usuario==u);const k=e.target.classList.contains("st")?"status":"obs";l[k]=e.target.value;save(u,k,e.target.value);render()});
 $("#arq").onchange=async e=>{const f=e.target.files[0];if(f)load(JSON.parse(await f.text()))};
-$("#csv").onclick=()=>{const f=filtered(),h=["faixa","motivo_exclusao","usuario","url","nicho_principal","seguidores","engajamento","media_views","score_30mais","email","whatsapp","link_bio","ultimo_post","status","obs","bio"];
+$("#csv").onclick=()=>{const f=filtered(),h=["faixa","vende_live","motivo_exclusao","usuario","url","nicho_principal","seguidores","engajamento","media_views","score_30mais","email","whatsapp","link_bio","ultimo_post","status","obs","bio"];
  const c=v=>'"'+String(v??"").replace(/"/g,'""').replace(/\n/g," ")+'"';const t=[h.join(",")].concat(f.map(l=>h.map(k=>c(l[k])).join(","))).join("\n");
  const a=document.createElement("a");a.href=URL.createObjectURL(new Blob(["﻿"+t],{type:"text/csv"}));a.download="leads.csv";a.click()};
 if(window.__LEADS__)load(window.__LEADS__);else fetch("../data/leads.json").then(r=>r.ok?r.json():Promise.reject()).then(load).catch(()=>{$("#vazio").hidden=false});
